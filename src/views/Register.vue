@@ -5,7 +5,7 @@
     <fieldset>
       <div class="pure-control-group">
         <label for="email">Email</label>
-        <input v-model="name" type="text" placeholder="Your Email">
+        <input v-model="email" type="text" placeholder="Your Email">
       </div>
 
       <div class="pure-control-group">

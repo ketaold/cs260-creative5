@@ -52,16 +52,22 @@ methods: {
 
 async upload() {
       try {
-        const formData = new FormData();
+       /* const formData = new FormData();
         formData.append('photo', this.file, this.file.name);
         formData.append('title', this.title);
         formData.append('ingredients', this.ingredients);
         formData.append('instructions', this.instructions);
-        this.error = await this.$store.dispatch("upload", formData);
+        this.error = await this.$store.dispatch("upload", formData);*/
+        var myData = {
+            title: this.title,
+            ingredients: this.ingredients,
+            instructions: this.instructions
+        }
+        this.error = await this.$store.dispatch("upload", myData);
         if (!this.error) {
           this.title = '';
           this.instructions = '';
-          this.ingredients + '';
+          this.ingredients = '';
           this.file = null;
           this.$emit('uploadFinished');
         }

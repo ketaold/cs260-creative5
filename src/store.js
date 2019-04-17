@@ -50,7 +50,7 @@ export default new Vuex.Store({
             }
         },
 
-        async getMyPhotos(context) {
+        async getMyRecipes(context) {
             try {
                 let response = await axios.get("/api/recipes");
                 context.commit('setRecipes', response.data);
@@ -70,7 +70,7 @@ export default new Vuex.Store({
             }
         },
 
-        async getAllPhotos(context) {
+        async getAllRecipes(context) {
             try {
                 let response = await axios.get("/api/recipes/all");
                 context.commit('setRecipes', response.data);

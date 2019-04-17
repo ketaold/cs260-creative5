@@ -34,15 +34,9 @@ const Recipe = mongoose.model('Recipe', recipeSchema);
 
 // upload recipe
 router.post("/", auth.verifyToken, User.verify, upload.single('recipe'), async (req, res) => {
-    // check parameters
-    if (!req.file)
-        return res.status(400).send({
-            message: "Must upload a file."
-        });
 
     const recipe = new Recipe({
         user: req.user,
-        path: "/images/" + req.file.filename,
         title: req.body.title,
         instructions: req.body.instructions,
         ingredients: req.body.ingredients

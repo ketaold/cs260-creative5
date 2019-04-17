@@ -1,14 +1,15 @@
 <template>
+
 <div>
   <div class="image" v-for="recipe in recipes" v-bind:key="recipe._id">
     <img :src="recipe.path" />
-    <p class="photoTitle">{{recipe.title}}</p>
-    <p class="photoDate">
-<span v-if="photo.user.name">{{photo.user.name}}, </span>
-  {{formatDate(photo.created)}}
+    <p class="title">{{recipe.title}}</p>
+    <p class="date">
+<span v-if="recipe.user.name">{{recipe.user.name}}, </span>
+  {{formatDate(recipe.created)}}
 	</p>
-    <p>{{recipe.ingredients}}</p>
-    <p>{{recipe.instrutions}}</p>
+    <p class="ingredients">{{recipe.ingredients}}</p>
+    <p class="instructions">{{recipe.instructions}}</p>
   </div>
 </div>
 </template>
@@ -19,7 +20,7 @@ import moment from 'moment';
 export default {
   name: 'RecipeGallery',
   props: {
-    photos: Array
+    recipes: Array
   },
   methods: {
     formatDate(date) {
@@ -33,30 +34,32 @@ export default {
 </script>
 
 <style scoped>
-.photoTitle {
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+
+.title {
   margin: 0px;
-  font-size: 1.2em;
+  font-size: 2em;
+  font-weight:bold
 }
 
-.photoDate {
+.date {
   margin: 0px;
   font-size: 0.9em;
   font-weight: normal;
+  font-style: italic;
+  color: #777777
+}
+
+.ingredients {
+    font-family:  'Indie Flower', cursive;   
+}
+
+.instructions {
+    font-family:  'Indie Flower', cursive;   
 }
 
 p {
   margin: 0px;
 }
 
-.image {
-  margin: 0 0 1.5em;
-  display: inline-block;
-  width: 100%;
-}
-
-.image img {
-  max-width: 600px;
-  max-height: 600px;
-  image-orientation: from-image;
-}
 </style>

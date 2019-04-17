@@ -1,7 +1,6 @@
 <template>
 <div id="app">
   <div class="pure-menu">
-    <span class="pure-menu-heading">Photo Bomb</span>
     <ul class="pure-menu-list">
       <li class="pure-menu-item">
         <router-link to="/" class="pure-menu-link">Home</router-link>
@@ -12,13 +11,15 @@
     </ul>
   </div>
   <div class="content">
+  <div class="header">
+  <h1>Recipe Sharing</h1>
+  </div>
     <router-view />
   </div>
 </div>
 </template>
 
 <style>
-/* https://color.adobe.com/Ventana-Azul-color-theme-2159606/?showPublished=true */
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -34,7 +35,7 @@
   /* display: inline-block; */
   /* Or set the width explicitly: */
   text-align: left;
-  background: #000;
+  background: #008080;
 }
 
 .pure-menu-heading {
@@ -57,7 +58,7 @@
 
 .pure-menu-link.router-link-exact-active {
   background: #fff;
-  color: #F2385A;
+  color: #008080;
 }
 
 .content {
@@ -71,6 +72,14 @@ html {
 
 body {
   height: 100%;
+  background: repeating-linear-gradient(
+  45deg,
+  #ffffff,
+  #ddffff 100px,
+  #ffffff 100px,
+  #ddffff 200px
+);
+
 }
 
 *,
@@ -140,6 +149,7 @@ body {
 .modal-default-button {
   float: right;
 }
+
 
 /*
   * The following styles are auto-applied to elements with

@@ -3,15 +3,13 @@
   <div v-if="user">
     <div class="header">
       <div>
-        <h1>Your Recipes</h1>
-      </div>
-      <div>
         <p>
-          <a @click="toggleUpload"><i class="far fa-image"></i></a>
-          <a href="#" @click="logout"><i class="fas fa-sign-out-alt"></i></a>
+          <a class="pure-button" @click="toggleUpload">UPLOAD</i></a>
+          <a class="pure-button" @click="logout">LOGOUT</i></a>
         </p>
       </div>
     </div>
+    <h1>Your Recipes</h1>
     <escape-event @escape="escape"></escape-event>
     <uploader :show="show" @escape="escape" @upload-finished="uploadFinished" />
     <recipe-gallery :recipes="recipes" />
@@ -30,7 +28,7 @@ import Uploader from '@/components/Uploader.vue'
 import RecipeGallery from '@/components/RecipeGallery.vue'
 
 export default {
-  name: 'mypage',
+  name: 'myrecipes',
   components: {
     EscapeEvent,
     Uploader,
@@ -80,6 +78,10 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+    font-size: 1.5em;
+}
+
 .pure-button {
   margin: 0px 20px;
 }
@@ -89,9 +91,9 @@ export default {
 }
 
 .header a {
-  padding-left: 50px;
+  font-align: center;
   color: #222;
-  font-size: 2em;
+  font-size: 1em
 }
 
 .header svg {
