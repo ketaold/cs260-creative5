@@ -68,7 +68,7 @@ export default {
     }
   },
  async created() {
-    await this.$store.dispatch("getUser");
+    await this.$store.dispatch("MyUser");
     await this.$store.dispatch("getMyRecipes");
     await this.$store.dispatch("getMyGroceries");
   },
