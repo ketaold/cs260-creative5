@@ -1,6 +1,7 @@
 <template>
 
 <div>
+    <br></br>
   <div class="image" v-for="grocery in allGroceries" v-bind:key="grocery._id">
     <p class="ingredients">{{grocery.ingredient}}</p>
   </div>

@@ -32,10 +32,9 @@ const Grocery = mongoose.model('Grocery', grocerySchema);
 
 // upload recipe
 router.post("/", auth.verifyToken, User.verify, upload.single('grocery'), async (req, res) => {
-
     const grocery = new Grocery({
         user: req.user,
-        grocery: req.body.ingredient
+        ingredient: req.body.ingredient
     });
     try {
         await grocery.save();
@@ -59,6 +58,7 @@ router.get("/", auth.verifyToken, User.verify, async (req, res) => {
         }).sort({
             created: -1
         });
+        console.log(groceries);
         return res.send(groceries);
     } catch (error) {
         console.log(error);

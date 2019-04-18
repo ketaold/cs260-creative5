@@ -20,6 +20,7 @@ export default new Vuex.Store({
         },
         setGroceries(state, groceries) {
             state.groceries = groceries;
+
         }
 
     },
@@ -52,6 +53,17 @@ export default new Vuex.Store({
             } catch (error) {
                 return error.response.data.message;
             }
+        },
+
+        async addIngredientToList(context, data) {
+            try {
+                console.log(data);
+                await axios.post('/api/groceries', data);
+                return "";
+            } catch (error) {
+                return error.response.data.message;
+            }
+
         },
 
         async getMyRecipes(context) {

@@ -8,8 +8,8 @@
 <span v-if="recipe.user.name">{{recipe.user.name}}, </span>
   {{formatDate(recipe.created)}}
 	</p>
-    <p class="ingredients">{{recipe.ingredients}}</p>
-    <p class="instructions">{{recipe.instructions}}</p>
+    <p class="ingredients"><b>Ingredients:</b> {{recipe.ingredients}}</p>
+    <p class="instructions"><b>Instructions:</b> {{recipe.instructions}}</p>
     <a v-bind:href="recipe.link">{{recipe.link}}</a>
   </div>
 </div>

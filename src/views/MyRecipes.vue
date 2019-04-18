@@ -30,7 +30,11 @@
     <router-link to="/register" class="pure-button">REGISTER</router-link> or
     <router-link to="/login" class="pure-button">LOGIN</router-link>
   </div>
+  <footer>
+    <p class="center">My GitHub Repository: <a href="https://github.com/ketaold/cs260-creative5">Creative Project 5</a></p>
+</footer>
 </div>
+
 </template>
 
 <script>
@@ -89,6 +93,7 @@ export default {
     },
     toggleUpload() {
       this.show = true;
+      
     },
     async uploadFinished() {
       this.show = false;
@@ -122,6 +127,7 @@ h1 {
 
 .column {
   flex: 50%;
+  margin-right: 5vw;
 }
 .pure-button {
   margin: 0px 20px;

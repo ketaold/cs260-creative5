@@ -42,8 +42,8 @@ async addIngredient() {
       try {
        var myData = {
             ingredient: this.ingredient
-        }
-        this.error = await this.$store.dispatch("upload", myData);
+        };
+        this.error = await this.$store.dispatch("addIngredientToList", myData);
         if (!this.error) {
           this.ingredient = '';
           this.$emit('shoppingFinished');

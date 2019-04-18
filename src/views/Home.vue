@@ -2,7 +2,7 @@
   <div class="home">
     <recipe-gallery :recipes="recipes" />
     <footer>
-    <p class="center">My GitHub Repository: <a href="https://github.com/BYU-CS-260-Winter-2019/lab-5-ketaold">Lab 5</a></p>
+    <p class="center">My GitHub Repository: <a href="https://github.com/ketaold/cs260-creative5">Creative Project 5</a></p>
 </footer>
   </div>
   
