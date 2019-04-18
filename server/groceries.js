@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const auth = require("./auth.js");
 
+
 // Configure multer so that it will upload to '/public/images'
 const multer = require('multer')
 const upload = multer({
@@ -15,36 +16,29 @@ const upload = multer({
 const users = require("./users.js");
 const User = users.model;
 
-const recipeSchema = new mongoose.Schema({
+const grocerySchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.ObjectId,
         ref: 'User'
     },
-    path: String,
-    title: String,
-    instructions: String,
-    ingredients: String,
-    link: String,
+    ingredient: String,
     created: {
         type: Date,
         default: Date.now
     },
 });
 
-const Recipe = mongoose.model('Recipe', recipeSchema);
+const Grocery = mongoose.model('Grocery', grocerySchema);
 
 // upload recipe
-router.post("/", auth.verifyToken, User.verify, upload.single('recipe'), async (req, res) => {
+router.post("/", auth.verifyToken, User.verify, upload.single('grocery'), async (req, res) => {
 
-    const recipe = new Recipe({
+    const grocery = new Grocery({
         user: req.user,
-        title: req.body.title,
-        instructions: req.body.instructions,
-        ingredients: req.body.ingredients,
-        link: req.body.link
+        grocery: req.body.ingredient
     });
     try {
-        await recipe.save();
+        await grocery.save();
         return res.sendStatus(200);
     } catch (error) {
         console.log(error);
@@ -52,36 +46,20 @@ router.post("/", auth.verifyToken, User.verify, upload.single('recipe'), async (
     }
 });
 
-// get all recipes
-router.get("/all", async (req, res) => {
-    try {
-        let recipes = await Recipe.find({
-            title: {
-                $exists: true
-            }
-        }).sort({
-            created: -1
-        }).populate('user');
-        return res.send(recipes);
-    } catch (error) {
-        console.log(error);
-        return res.sendStatus(500);
-    }
-});
 
-// get my recipes
+// get my groceries
 router.get("/", auth.verifyToken, User.verify, async (req, res) => {
     // return recipes
     try {
-        let recipes = await Recipe.find({
+        let groceries = await Grocery.find({
             user: req.user,
-            title: {
+            ingredient: {
                 $exists: true
             }
         }).sort({
             created: -1
         });
-        return res.send(recipes);
+        return res.send(groceries);
     } catch (error) {
         console.log(error);
         return res.sendStatus(500);
@@ -90,6 +68,6 @@ router.get("/", auth.verifyToken, User.verify, async (req, res) => {
 
 
 module.exports = {
-    model: Recipe,
+    model: Grocery,
     routes: router,
 }
