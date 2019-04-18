@@ -24,6 +24,7 @@ const recipeSchema = new mongoose.Schema({
     title: String,
     instructions: String,
     ingredients: String,
+    link: String,
     created: {
         type: Date,
         default: Date.now
@@ -39,7 +40,8 @@ router.post("/", auth.verifyToken, User.verify, upload.single('recipe'), async (
         user: req.user,
         title: req.body.title,
         instructions: req.body.instructions,
-        ingredients: req.body.ingredients
+        ingredients: req.body.ingredients,
+        link: req.body.link
     });
     try {
         await recipe.save();

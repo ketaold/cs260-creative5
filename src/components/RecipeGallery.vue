@@ -10,6 +10,7 @@
 	</p>
     <p class="ingredients">{{recipe.ingredients}}</p>
     <p class="instructions">{{recipe.instructions}}</p>
+    <a v-bind:href="recipe.link">{{recipe.link}}</a>
   </div>
 </div>
 </template>
@@ -39,7 +40,8 @@ export default {
 .title {
   margin: 0px;
   font-size: 2em;
-  font-weight:bold
+  font-weight:bold;
+  font-family:  'Indie Flower', cursive; 
 }
 
 .date {
@@ -51,11 +53,11 @@ export default {
 }
 
 .ingredients {
-    font-family:  'Indie Flower', cursive;   
+    font-family:  Courier;   
 }
 
 .instructions {
-    font-family:  'Indie Flower', cursive;   
+    font-family:  Courier;   
 }
 
 p {

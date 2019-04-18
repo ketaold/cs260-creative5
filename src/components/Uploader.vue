@@ -13,12 +13,12 @@
             <p></p>
             <textarea v-model="ingredients" placeholder="Ingredients"></textarea>
             <p></p>
-            <textarea v-model="instructions" placeholder="Instructions"></textarea>
+            <textarea v-model="instructions" placeholder="Brief instructions"></textarea>
             <p></p>
-            <input type="file" name="photo" @change="fileChanged">
+            <input v-model="link" placeholder="Link to complete recipe"></textarea>
             <p></p>
-            <button type="button" @click="close" class="pure-button">Close</button>
-            <button type="submit" class="pure-button pure-button-secondary">Upload</button>
+            <button type="button" @click="close" class="pure-button">CLOSE</button>
+            <button type="submit" class="pure-button pure-button-secondary">UPLOAD</button>
           </form>
         </div>
       </div>
@@ -40,6 +40,7 @@ export default {
       instructions: '',
       file: null,
       error: '',
+      link: ''
     }
   },
 methods: {
@@ -61,7 +62,8 @@ async upload() {
         var myData = {
             title: this.title,
             ingredients: this.ingredients,
-            instructions: this.instructions
+            instructions: this.instructions,
+            link: this.link
         }
         this.error = await this.$store.dispatch("upload", myData);
         if (!this.error) {
@@ -69,6 +71,7 @@ async upload() {
           this.instructions = '';
           this.ingredients = '';
           this.file = null;
+          this.link = '';
           this.$emit('uploadFinished');
         }
       } catch (error) {

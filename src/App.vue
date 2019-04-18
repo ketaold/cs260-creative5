@@ -3,10 +3,10 @@
   <div class="pure-menu">
     <ul class="pure-menu-list">
       <li class="pure-menu-item">
-        <router-link to="/" class="pure-menu-link">Home</router-link>
+        <router-link to="/" class="pure-menu-link">HOME</router-link>
       </li>
       <li class="pure-menu-item">
-        <router-link to="/myrecipes" class="pure-menu-link">My Recipes</router-link>
+        <router-link to="/myrecipes" class="pure-menu-link">MY RECIPES</router-link>
       </li>
     </ul>
   </div>
@@ -20,10 +20,12 @@
 </template>
 
 <style>
+
+@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Slabo 27px', serif;
   color: #2c3e50;
   font-size: 18px;
   display: flex;
@@ -38,18 +40,11 @@
   background: #008080;
 }
 
-.pure-menu-heading {
-  color: #fff;
-  font-size: 1.2em;
-  padding: 20px 20px;
-  background-color: #F2385A;
-  margin-bottom: 10px;
-}
-
 .pure-menu-link {
   color: #fff;
   padding: 10px 20px;
   font-weight: 800;
+  padding-top: 50px;
 }
 
 .pure-menu-link:hover {
@@ -75,9 +70,7 @@ body {
   background: repeating-linear-gradient(
   45deg,
   #ffffff,
-  #ddffff 100px,
-  #ffffff 100px,
-  #ddffff 200px
+  #fcfcfc 100px
 );
 
 }

@@ -8,7 +8,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         user: null,
-        recipes: []
+        recipes: [],
+        groceries: []
     },
     mutations: {
         setUser(state, user) {
@@ -16,6 +17,9 @@ export default new Vuex.Store({
         },
         setRecipes(state, recipes) {
             state.recipes = recipes;
+        },
+        setGroceries(state, groceries) {
+            state.groceries = groceries;
         }
 
     },
@@ -54,6 +58,16 @@ export default new Vuex.Store({
             try {
                 let response = await axios.get("/api/recipes");
                 context.commit('setRecipes', response.data);
+                return "";
+            } catch (error) {
+                return "";
+            }
+        },
+
+        async getMyGroceries(context) {
+            try {
+                let response = await axios.get("/api/groceries");
+                context.commit('setGroceries', response.data);
                 return "";
             } catch (error) {
                 return "";

@@ -42,7 +42,7 @@ export default {
           password: this.password
         });
         if (this.error === "")
-          this.$router.push('mypage');
+          this.$router.push('myrecipes');
       } catch (error) {
         console.log(error);
       }
